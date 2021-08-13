@@ -1,18 +1,16 @@
 from tkinter import *
+import Handlers
 
-m1 = PanedWindow()
-m1.pack(fill=BOTH, expand=1)
+wnd = Tk()
 
-left = Label(m1, text="left pane")
-m1.add(left)
+#name to be changed with newer version release
+wnd.title("PasswordVault 1.0")
 
-m2 = PanedWindow(m1, orient=VERTICAL)
-m1.add(m2)
+B = Button(wnd, text ="Sign in", command = Handlers.SignInCallBack)
 
-top = Label(m2, text="top pane")
-m2.add(top)
+B.pack()
+# Code to add widgets will go here...
+wnd.mainloop()
 
-bottom = Label(m2, text="bottom pane")
-m2.add(bottom)
 
-mainloop()
+
