@@ -1,5 +1,17 @@
 import tkinter.messagebox
+import login
+
 
 def SignInCallBack():
-      tkinter.messagebox.showwarning( "Hello", "Not implemented yet..")
+      
+      username1 = login.usernamevalue.get()
+      password1 = login.passwordvalue.get()
+
+      if len(username1) <= 0:
+          tkinter.messagebox.showwarning( "Message", "User Name can not be empty")
+      elif len(password1) <= 0:
+          tkinter.messagebox.showwarning( "Message", "password can not be empty")
+      else :
+          tkinter.messagebox.showwarning( "Message", "Not implemented yet..")
+
 
