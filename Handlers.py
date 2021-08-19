@@ -1,17 +1,16 @@
 import tkinter.messagebox
-import login
+import SignIn
 
-
-def SignInCallBack():
-      
-      username1 = login.usernamevalue.get()
-      password1 = login.passwordvalue.get()
-
-      if len(username1) <= 0:
+def SignInHandler(username, password):
+      if len(username) <= 0:
           tkinter.messagebox.showwarning( "Message", "User Name can not be empty")
-      elif len(password1) <= 0:
+      elif len(password) <= 0:
           tkinter.messagebox.showwarning( "Message", "password can not be empty")
       else :
-          tkinter.messagebox.showwarning( "Message", "Not implemented yet..")
+          if SignIn.trySigningIn(username, password)==True:
+              #Opens a new window
+              tkinter.messagebox.showinfo("Error", "Not implemented yet")
+          else:
+              tkinter.messagebox.showerror("Error", "Error in sign-in")
 
 
