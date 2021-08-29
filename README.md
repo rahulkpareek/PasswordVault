@@ -1,8 +1,10 @@
 # PasswordVault  
 
-Description:  This is a desktop application to save username and password in a local machine with encryption. Since, there is no API involved, this is quite a secure application to use.   
+Description:  Desktop application to save all your usernames, passwords for any website securely without worrying about getting it leaked. 
 
-Tech stack:  
-Python 
-DB
-Encryption
+Modules used:   
+Python TinyDB
+Python Hashlib 
+Python Cryptography
+
+Sincere thanks to the contributers!!!
