@@ -1,10 +1,23 @@
 # PasswordVault  
 
-Description:  Desktop application to save all your usernames, passwords for any website securely without worrying about getting it leaked. 
+<b>Description</b>  
+Desktop application to save all your usernames, passwords for any website securely without worrying about getting it leaked. 
 
-Modules used:   
-Python TinyDB
-Python Hashlib 
-Python Cryptography
+<b>Modules</b>:   
+<li>Python TinyDB
+<li>Python Hashlib 
+<li>Python Cryptography
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-Sincere thanks to the contributers!!!
+<i>Sincere thanks to the contributers!!!
