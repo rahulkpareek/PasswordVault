@@ -1,20 +1,37 @@
 import hashlib
+from tinydb import TinyDB, Query
 
-def ConnectToDatabase():
-    dbconnection=None
+def ConnectToDatabase(dbfile):
+    dbconnection=TinyDB(dbfile)
     return dbconnection
 
-#encrytion code
 def encrypt_string(hash_string):
     sha_signature = hashlib.sha256(hash_string.encode()).hexdigest()
     return sha_signature
 
+def CheckUsernameExists(db, username):
+    try:
+       User=Query()
+       username = encrypt_string(username)
+       result = db.get(User['user']==username)
+       return result
+    except IndexError:
+        return None
+
 def trySigningIn(username, password):
-    db=ConnectToDatabase()
+    db=ConnectToDatabase('db.json')
     if db != None:
-        # this salt is further encrytped and stored in the password column of the tabLogin.
-        salt=username+password
-        sha_sig=encrypt_string(salt)
-        return True
+        userdata=CheckUsernameExists(db, username)
+        if userdata == None:
+            return (False, 'User {0} doesn\'t exist'.format(username))
+        else:
+            # the combination of username and password is used as salt
+            if userdata['password'] == encrypt_string(username+password):
+                return (True, 'Successful login')
+            else:
+                return (False, 'Wrong password entered')
     else:
-        return False
+        return (False,'Cannot connect to a database')
+
+def DisplayUserInfo(username, password):
+    sha_sig=encrypt_string(username+password)

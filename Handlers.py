@@ -3,14 +3,16 @@ import SignIn
 
 def SignInHandler(username, password):
       if len(username) <= 0:
-          tkinter.messagebox.showwarning( "Message", "User Name can not be empty")
+          tkinter.messagebox.showwarning( "Error", "User Name can not be empty")
       elif len(password) <= 0:
-          tkinter.messagebox.showwarning( "Message", "password can not be empty")
+          tkinter.messagebox.showwarning( "Error", "password can not be empty")
       else :
-          if SignIn.trySigningIn(username, password)==True:
+          res = SignIn.trySigningIn(username, password)
+          if res[0]==True:
               #Opens a new window
-              tkinter.messagebox.showinfo("Error", "Not implemented yet")
+              tkinter.messagebox.showinfo("Success",res[1])
+              SignIn.DisplayUserInfo(username, password)
           else:
-              tkinter.messagebox.showerror("Error", "Error in sign-in")
+              tkinter.messagebox.showerror("Error",res[1])
 
 
