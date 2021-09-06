@@ -1,38 +1,52 @@
 from tkinter import *
+from tkinter.font import BOLD
 import Handlers
+import RegisterScreen
 
 #import Handlers
 def SignInCallback():
-    Handlers.SignInHandler(usernameVal.get(), passwordVal.get())
+    Handlers.SignInHandler(usernamevalue.get(), passwordvalue.get())
 
+def SignupCallBack():
+    RegisterScreen.SignUpHandler(wnd)
 
 #UI code
 wnd = Tk()
 
 #name to be changed with newer version release
 wnd.title("PasswordVault 1.0")
-wnd.geometry('400x400')
+wnd.geometry('405x405')
 
 #photo
-photo = PhotoImage(file=".\PasswordVault-main\PasswordVault-main\Logo.png")
-image_label = Label(image=photo)
-image_label.grid(row=0,column=0)
+backgroundphoto = PhotoImage(file=".\Logo.png")
+image_label = Label(image=backgroundphoto,padx=2,pady=2)
+image_label.place(x=0,y=0)
 
 
 #Username and Password Labels
-Label(wnd, text="UserName").grid(row=1, column=0)
-Label(wnd, text="Password").grid(row=9, column=0)
+usernamelabel = Label(wnd, text="UserName",bg = "dark blue" ,fg = "White",font=("Arial", 10,BOLD))
+passwordlabel = Label(wnd, text="Password",bg = "dark blue" ,fg = "White",font=("Arial", 10,BOLD))
+usernamelabel.place(x=100,y=40)
+passwordlabel.place(x=100,y=80)
+
+#Entry values declaration
+usernamevalue = StringVar()
+passwordvalue = StringVar()
 
 #Username and Password Entry
-usernameVal=StringVar()
-passwordVal=StringVar()
-usernameentry = Entry(wnd, bd =5,textvariable=usernameVal).grid(row=1, column=11)
-passwordentry = Entry(wnd, bd =5,show='*',textvariable=passwordVal).grid(row=9, column=11)
+usernameentry = Entry(wnd, bd =5,textvariable=usernamevalue)
+passwordentry = Entry(wnd, bd =5,show='*',textvariable=passwordvalue)
+usernameentry.place(x=200,y=42)
+passwordentry.place(x=200,y=82)
 
 #Button
-Button(wnd, text ="Sign in", command = SignInCallback).grid(row=14, column=0)
+#Button(wnd, text ="Sign in", command = SignInCallback).grid(row=14, column=0)
+signinbutton = Button(wnd, text ="Sign in", command = SignInCallback)
+signupbutton = Button(wnd, text ="Register New User",command = SignupCallBack)
 
-# Code to add widgets will go here...
+signinbutton.place(x=100,y=130)
+signupbutton.place(x=200,y=130)
+
 
 wnd.mainloop()
 
