@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![PasswordVault Logo](Logo.png)
+![PasswordVault Logo](logo.png)
 
 **Your Digital Fort Knox for Password Security**
 
@@ -63,7 +63,7 @@ Python 3.8 or higher
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/passwordvault.git
+git clone https://github.com/rahulkpareek/passwordvault.git
 
 # Navigate to the project directory
 cd passwordvault
@@ -226,7 +226,7 @@ Ready to code? Follow these steps:
 
 ## 📄 **License**
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **GNU GENERAL PUBLIC LICENSE** - see the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -249,7 +249,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 *PasswordVault - Where Your Secrets Stay Secret*
 
-[⭐ Star us on GitHub](https://github.com/yourusername/passwordvault) | [🐛 Report Issues](https://github.com/yourusername/passwordvault/issues) | [💬 Join Discussion](https://github.com/yourusername/passwordvault/discussions)
+[⭐ Star us on GitHub](https://github.com/rahulkpareek/passwordvault) | [🐛 Report Issues](https://github.com/rahulkpareek/passwordvault/issues) | [💬 Join Discussion](https://github.com/rahulkpareek/passwordvault/discussions)
 
 </div>
 
@@ -257,10 +257,10 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 📞 **Support & Contact**
 
-- **Documentation**: [Wiki](https://github.com/yourusername/passwordvault/wiki)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/passwordvault/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/passwordvault/discussions)
-- **Email**: support@passwordvault.com
+- **Documentation**: [Wiki](https://github.com/rahulkpareek/passwordvault/wiki)
+- **Issues**: [GitHub Issues](https://github.com/rahulkpareek/passwordvault/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/rahulkpareek/passwordvault/discussions)
+- **Email**: 
 
 ---
 
