@@ -106,23 +106,23 @@ class PasswordVaultApp:
     
     def create_login_form(self):
         """Create login form with username and password fields"""
-        form_frame = tk.Frame(self.window, bg='#ecf0f1', height=120)
+        form_frame = tk.Frame(self.window, bg='#ecf0f1', height=150)
         form_frame.pack(fill='x', pady=(0, 20))
         form_frame.pack_propagate(False)
         
         # Username label and entry
         username_label = tk.Label(form_frame, text="Username", bg='#ecf0f1', fg='black', font=("Arial", 12))
-        username_label.pack(side='left', padx=20, pady=10)
+        username_label.pack(anchor='w', padx=20, pady=(10, 0))
         
-        username_entry = tk.Entry(form_frame, bd=5, textvariable=self.username_var)
-        username_entry.pack(side='left', padx=20, pady=10)
+        username_entry = tk.Entry(form_frame, bd=5, textvariable=self.username_var, width=30)
+        username_entry.pack(anchor='w', padx=20, pady=(0, 10))
         
         # Password label and entry
         password_label = tk.Label(form_frame, text="Password", bg='#ecf0f1', fg='black', font=("Arial", 12))
-        password_label.pack(side='left', padx=20, pady=10)
+        password_label.pack(anchor='w', padx=20, pady=(10, 0))
         
-        password_entry = tk.Entry(form_frame, bd=5, show='*', textvariable=self.password_var)
-        password_entry.pack(side='left', padx=20, pady=10)
+        password_entry = tk.Entry(form_frame, bd=5, show='*', textvariable=self.password_var, width=30)
+        password_entry.pack(anchor='w', padx=20, pady=(0, 10))
     
     def create_buttons(self):
         """Create login and register buttons"""
@@ -145,7 +145,7 @@ class PasswordVaultApp:
         footer_frame.pack_propagate(False)
         
         # Copyright label
-        copyright_label = tk.Label(footer_frame, text="© 2023 Password Vault. All rights reserved.", bg='#2c3e50', fg='white', font=("Arial", 10))
+        copyright_label = tk.Label(footer_frame, text="© 2025 Password Vault. All rights reserved.", bg='#2c3e50', fg='white', font=("Arial", 10))
         copyright_label.pack(side='left', padx=20, pady=10)
     
     def setup_keyboard_bindings(self):
@@ -158,7 +158,7 @@ class PasswordVaultApp:
     
     def signup_callback(self):
         """Callback function for register button"""
-        RegisterScreen.SignUpHandler(self.window)
+        RegisterScreen.RegistrationWindow(self.window)
     
     def show_error(self, title, message):
         """Show error message to the user"""

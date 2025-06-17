@@ -20,20 +20,20 @@ def check_username_exists(db: TinyDB, username: str) -> Optional[Dict]:
     Returns:
         User data if found, None otherwise
     """
-    return DBhelper.search_db(db, 'username', username)
+    return DBhelper.search_db(db, 'userid', username)
 
-def get_user_info(db: TinyDB, user_id: str) -> Optional[Dict]:
+def get_user_info(db: TinyDB, userid: str) -> Optional[Dict]:
     """
     Get user information from database
     
     Args:
         db: Database connection
-        user_id: User identifier
+        userid: User identifier
         
     Returns:
         User info if found, None otherwise
     """
-    return DBhelper.search_db(db, 'user_id', user_id)
+    return DBhelper.search_db(db, 'userid', userid)
 
 def create_user(username: str, password: str) -> Tuple[bool, str]:
     """
@@ -68,14 +68,13 @@ def create_user(username: str, password: str) -> Tuple[bool, str]:
         password_hash = DBhelper.hash_password(password, salt)
         
         # Generate unique user ID
-        user_id = secrets.token_hex(16)
+        userid = secrets.token_hex(16)
         
         # Create user record
         user_data = {
-            'username': username,
             'password_hash': password_hash,
             'salt': salt,
-            'user_id': user_id
+            'userid': userid
         }
         
         DBhelper.insert_in_db(db, user_data)
@@ -145,15 +144,15 @@ def display_user_info(username: str, password: str, output_file: str = "user_inf
         # Get user info from info database
         info_db = DBhelper.connect_to_database('user_info.json')
         
-        # Get user data to find user_id
+        # Get user data to find userid
         users_db = DBhelper.connect_to_database('users.json')
         user_data = check_username_exists(users_db, username)
         
         if not user_data:
             return (False, "User data not found")
         
-        user_id = user_data.get('user_id')
-        user_info = get_user_info(info_db, user_id)
+        userid = user_data.get('userid')
+        user_info = get_user_info(info_db, userid)
         
         # Write info to file
         with open(output_file, 'w', encoding='utf-8') as file:
@@ -162,7 +161,7 @@ def display_user_info(username: str, password: str, output_file: str = "user_inf
             
             if user_info:
                 for key, value in user_info.items():
-                    if key != 'user_id':  # Don't display internal ID
+                    if key != 'userid':  # Don't display internal ID
                         file.write(f"{key.title()}: {value}\n")
             else:
                 file.write("No additional user information found.\n")
