@@ -116,6 +116,9 @@ def try_signing_in(username: str, password: str) -> Tuple[bool, str]:
         password_hash = DBhelper.hash_password(password, salt)
         
         if password_hash == stored_hash:
+            # Import here to avoid circular imports
+            from UserDashboard import UserDashboard
+            UserDashboard(username)
             return (True, "Login successful")
         else:
             return (False, "Invalid password")
